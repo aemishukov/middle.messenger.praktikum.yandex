@@ -1,0 +1,134 @@
+@import "../../assets/style/colors.scss";
+@import "../../assets/style/mixins.scss";
+
+.navigation {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation >div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navigation-logo {
+    margin-top: 64px;
+    width: 100%;
+    height: 27px;
+    position: relative;
+
+    background-image: url(../../assets/images/greenLogo.svg);
+    background-size: 147px 27px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navigation-logo-ears {
+    position: absolute;
+    width: 16px;
+    height: 20px;
+    left: 0;
+    background-image: url(../../assets/images/greenEar.svg);
+}
+
+.navigation-logo::before {
+    content: "";
+    top: -10px;
+    @extend .navigation-logo-ears;
+}
+
+.navigation-logo::after {
+    content: "";
+    top: 20px;
+    @extend .navigation-logo-ears;
+}
+
+.navigation-buttons {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.navigation-button {
+    width: 100%;
+    height: 42px;
+    padding-left: 92px;
+    display: flex;
+    align-items: center;
+
+    @include CousineRegular(16px, 16px);
+    color: $white;
+
+    border: none;
+    background: transparent;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.navigation-button[data-isActive="1"] {
+    color: $blue;
+    background-color: $green;
+}
+
+.navigation-button::before {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 53px;
+}
+
+.navigation-chatButton, .navigation-profileButton {
+    @extend .navigation-button;
+}
+
+.navigation-chatButton::before {
+    content: "";
+    background-image: url('../../assets/images/icons/chat.svg');
+}
+
+.navigation-profileButton::before {
+    content: "";
+    background-image: url('../../assets/images/icons/profile.svg');
+}
+
+.navigation-chatButton[data-isActive="1"]::before {
+    content: "";
+    background-image: url('../../assets/images/icons/chatBlue.svg');
+}
+
+.navigation-profileButton[data-isActive="1"]::before {
+    content: "";
+    background-image: url('../../assets/images/icons/profileBlue.svg');
+}
+
+.navigation-logoutButton {
+    margin-bottom: 63px;
+    width: 100%;
+    padding-left: 92px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include CousineRegular(16px, 16px);
+    text-align: left;
+    color: $white;
+
+    border: none;
+    background: transparent;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.navigation-logoutButton::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 53px;
+    background-image: url('../../assets/images/icons/arrow.svg');
+}

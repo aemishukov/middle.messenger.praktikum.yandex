@@ -1,0 +1,27 @@
+---
+inputs:
+    - name: "логин"
+      type: "text"
+      error: ""
+    - name: "пароль"
+      type: "password"
+      error: "error text"
+---
+
+
+<link rel="stylesheet" href="../../assets/style/global.scss">
+<link rel="stylesheet" href="./style.scss">
+
+<div id="{{ id }}" class="login-container">
+    <form class="login-form">
+        <img src="../../assets/images/logo.svg" />
+        <h1 class="login-form-title">вход</h1>
+        {{#each inputs}}
+            {{> textInput/textInput params=this}}
+        {{/each}}
+        <a href="../profile/index.hbs" class="login-form-submitButton">авторизоваться</a>
+        <a href="../registration/index.hbs" class="login-form-signupButton">нет аккаунта?</a>
+    </form>
+</div>
+
+

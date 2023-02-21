@@ -1,0 +1,9 @@
+<div class="textInput">
+    <h1>{{params.name}}</h1>
+    {{#if params.error}}
+        <input type={{params.type}} data-error>
+        <p>{{params.error}}</p>
+    {{else}}
+        <input type={{params.type}}>
+    {{/if}}
+</div>

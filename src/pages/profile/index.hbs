@@ -1,0 +1,55 @@
+---
+params:
+    chatIsActive: "0"
+    profileIsActive: "1"
+testPhoto: "../../assets/images/testPhoto.png"
+name: "Иван"
+surname: "Иванов"
+status: "online"
+phrase: "на лучшее не настроился, вот и не расстроился"
+info:
+  - name: "почта"
+    value: "ivan@meowmeow.com"
+  - name: "логин"
+    value: "ivanivanov"
+  - name: "имя"
+    value: "Иван"
+  - name: "фамилия"
+    value: "Иванов"
+  - name: "имя в чате"
+    value: "Иван"
+  - name: "телефон"
+    value: "+7 (999) 999-99-99"
+---
+
+<link rel="stylesheet" href="../../assets/style/global.scss">
+<link rel="stylesheet" href="./style.scss">
+
+<div class="profile-page">
+  {{> navigation/index params=params }}
+  <section class="profile">
+    <div class="profile-options">
+      <div class="profile-options-status">
+        <div class="profile-options-status-photo-container">
+          <div class="profile-options-status-photo-ears"></div>
+          <div class="profile-options-status-photo">
+            <img src={{testPhoto}} />
+          </div>
+        </div>
+        <div class="profile-options-status-name">{{name}} {{surname}}</div>
+        <div class="profile-options-status-online">{{status}}</div>
+        <div class="profile-options-status-phrase">{{phrase}}</div>
+      </div>
+      <div class="profile-options-controls">
+        <button class="profile-options-controls-button">редактировать профиль</button>
+        <button class="profile-options-controls-button">изменить пароль</button>
+      </div>
+    </div>
+    <div class="profile-info">
+      {{#each info}}
+        {{> infoRow/index params=this}}
+      {{/each}}
+    </div>
+  </section>
+</div>
+
