@@ -1,0 +1,46 @@
+---
+inputs:
+    - label: "почта"
+      name: "email"
+      type: "text"
+      error: ""
+    - label: "логин"
+      name: "login"
+      type: "text"
+      error: ""
+    - label: "имя"
+      name: "first_name"
+      type: "text"
+      error: ""
+    - label: "фамилия"
+      name: "second_name"
+      type: "text"
+      error: ""
+    - label: "телефон"
+      name: "phone"
+      type: "text"
+      error: ""
+    - label: "пароль"
+      name: "password"
+      type: "password"
+      error: ""
+    - label: "пароль (ещё раз)"
+      name: "password_copy"
+      type: "password"
+      error: "error text"
+---
+
+<link rel="stylesheet" href="../../assets/style/global.scss">
+<link rel="stylesheet" href="./style.scss">
+
+<div class="registration-container">
+    <form class="registration-form">
+        <img src="../../assets/images/logo.svg" />
+        <h1 class="registration-form-title">регистрация</h1>
+        {{#each inputs}}
+            {{> textInput/textInput params=this}}
+        {{/each}}
+        <a href="" class="registration-form-submitButton">зарегистрироваться</a>
+        <a href="../authorization/index.hbs" class="registration-form-loginButton">войти</a>
+    </form>
+</div>

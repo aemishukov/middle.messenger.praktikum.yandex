@@ -1,0 +1,54 @@
+@import "../../../src/assets/style/colors.scss";
+@import "../../../src/assets/style/mixins.scss";
+
+.avatarEdit {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 36px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFBFC;
+}
+
+.avatarEdit-container {
+    padding: 42px 42px 32px;
+
+    display: flex;
+    align-items: center;
+    gap: 42px;
+
+    border: 4px solid $green;
+    background-color: #FAFBFC;
+}
+
+.avatarEdit-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatarEdit-avatar-photo {
+    width: 93px;
+    height: 93px;
+}
+
+.avatarEdit-container-name {
+    margin-top: 15px;
+    @include CousineRegular(12px, 12px);
+    color: $blue;
+}
+
+.avatarEdit-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.avatarEdit-controls-button {
+    @include whiteButtonWithGreenArrow();
+    height: 20px;
+    padding-left: 24px;
+}

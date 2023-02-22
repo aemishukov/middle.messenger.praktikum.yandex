@@ -1,0 +1,43 @@
+---
+inputs:
+    - label: "почта"
+      name: "email"
+      type: "text"
+      error: ""
+    - label: "логин"
+      name: "login"
+      type: "text"
+      error: ""
+    - label: "имя"
+      name: "first_name"
+      type: "text"
+      error: ""
+    - label: "фамилия"
+      name: "second_name"
+      type: "text"
+      error: ""
+    - label: "имя в чате"
+      name: "display_name"
+      type: "text"
+      error: ""
+    - label: "телефон"
+      name: "phone"
+      type: "text"
+      error: ""
+---
+
+
+<link rel="stylesheet" href="../../assets/style/global.scss">
+<link rel="stylesheet" href="./style.scss">
+
+<div id="{{ id }}" class="profileEdit-container">
+    <form class="profileEdit-form">
+        <img src="../../assets/images/logo.svg" />
+        <h1 class="profileEdit-form-title">редактировать профиль</h1>
+        {{#each inputs}}
+            {{> textInput/textInput params=this}}
+        {{/each}}
+        <a href="../profile/index.hbs" class="profileEdit-form-submitButton">сохранить</a>
+        <a href="../profile/index.hbs" class="profileEdit-form-signupButton">закрыть</a>
+    </form>
+</div>

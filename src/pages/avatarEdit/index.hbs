@@ -1,0 +1,26 @@
+---
+testPhoto: "../../assets/images/testPhoto.png"
+name: "Иван"
+surname: "Иванов"
+---
+
+
+<link rel="stylesheet" href="../../assets/style/global.scss">
+<link rel="stylesheet" href="./style.scss">
+
+<div class="avatarEdit">
+    <div class="avatarEdit-container">
+      <div class="avatarEdit-avatar">
+        <div class="avatarEdit-avatar-photo">
+          {{> avatar/index photo=testPhoto }}
+        </div>
+        <div class="avatarEdit-container-name">{{name}} {{surname}}</div>
+      </div>
+      <div class="avatarEdit-controls">
+        {{> fileInput/index name="avatar" label="загрузить файл с компьютера" class="avatarEdit-controls-button"}}
+        {{!-- <button class="avatarEdit-controls-button">загрузить файл с компьютера</button> --}}
+        <button class="avatarEdit-controls-button">выбрать готовый аватар</button>
+        <a href="../profile/index.hbs" class="avatarEdit-controls-button">оставить все как есть</a>
+      </div>
+  </div>
+</div>

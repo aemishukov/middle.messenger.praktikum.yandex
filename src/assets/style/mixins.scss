@@ -1,0 +1,62 @@
+@mixin CousineRegular($fontSize, $lineHeight) {
+    font-family: Cousine;
+    font-weight: 400;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+
+}
+
+@mixin CousineBold($fontSize, $lineHeight) {
+    font-family: Cousine;
+    font-weight: 700;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+
+}
+
+@mixin defaultButton() {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+@mixin blueButton() {
+    @include defaultButton();
+    @include CousineRegular(13px, 13px);
+
+    color: $white;
+    background-color: $blue;
+}
+
+@mixin whiteButton() {
+    @include defaultButton();
+    @include CousineRegular(11px, 11px);
+
+    color: $blue;
+    background-color: $white;
+}
+
+@mixin whiteButtonWithGreenArrow() {
+    @include defaultButton();
+    @include CousineRegular(14px, 14px);
+    color: $blue;
+
+    justify-content: flex-start;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    background-image: url(../../assets/images/greenEar.svg);
+    background-size: 18px 18px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
