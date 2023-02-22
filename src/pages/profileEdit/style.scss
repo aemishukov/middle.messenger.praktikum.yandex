@@ -1,7 +1,7 @@
 @import "../../../src/assets/style/colors.scss";
 @import "../../../src/assets/style/mixins.scss";
 
-.login-container {
+.profileEdit-container {
     width: 100%;
     min-height: 100vh;
 
@@ -10,9 +10,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FAFBFC;
 }
 
-.login-form {
+.profileEdit-form {
     padding: 70px 30px 44px;
 
     display: flex;
@@ -23,7 +24,7 @@
     background-color: #FAFBFC;
 }
 
-.login-form-title {
+.profileEdit-form-title {
     margin-top: 12px;
     margin-bottom: 68px;
 
@@ -31,22 +32,22 @@
     text-transform: uppercase;
 }
 
-.login-form div:nth-child(n+2) {
+.profileEdit-form div:nth-child(n+2) {
     width: 280px;
 }
 
-.login-form div:nth-child(n+2) {
+.profileEdit-form div:nth-child(n+2) {
     margin-top: 17px;
 }
 
-.login-form-submitButton {
+.profileEdit-form-submitButton {
     margin-top: 81px;
     height: 37px;
     position: relative;
     @include blueButton();
 }
 
-.login-form-submitButton::before {
+.profileEdit-form-submitButton::before {
     content: '';
     position: absolute;
     top: -14px;
@@ -55,7 +56,7 @@
     background-image: url("../../assets/images/blueEars.svg");
 }
 
-.login-form-signupButton {
+.profileEdit-form-signupButton {
     margin-top: 11px;
     @include whiteButton();
     background-color: transparent;

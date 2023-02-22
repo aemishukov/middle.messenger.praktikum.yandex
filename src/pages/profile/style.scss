@@ -29,33 +29,8 @@
 }
 
 .profile-options-status-photo-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-.profile-options-status-photo {
-    position: relative;
     width: 178px;
     height: 178px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-}
-
-.profile-options-status-photo img {
-    width: 100%;
-    height: 100%;
-}
-
-.profile-options-status-photo-ears {
-    position: absolute;
-    top: -20px;
-    width: 94px;
-    height: 34px;
-    background-image: url(../../assets/images/blueEars.svg);
-    background-size: 100%;
 }
 
 .profile-options-status-name {

@@ -16,31 +16,28 @@ inputs:
       name: "second_name"
       type: "text"
       error: ""
+    - label: "имя в чате"
+      name: "display_name"
+      type: "text"
+      error: ""
     - label: "телефон"
       name: "phone"
       type: "text"
       error: ""
-    - label: "пароль"
-      name: "password"
-      type: "password"
-      error: ""
-    - label: "пароль (ещё раз)"
-      name: "password_copy"
-      type: "password"
-      error: "error text"
 ---
+
 
 <link rel="stylesheet" href="../../assets/style/global.scss">
 <link rel="stylesheet" href="./style.scss">
 
-<div class="registration-container">
-    <form class="registration-form">
+<div id="{{ id }}" class="profileEdit-container">
+    <form class="profileEdit-form">
         <img src="../../assets/images/logo.svg" />
-        <h1 class="registration-form-title">регистрация</h1>
+        <h1 class="profileEdit-form-title">редактировать профиль</h1>
         {{#each inputs}}
             {{> textInput/textInput params=this}}
         {{/each}}
-        <a href="" class="registration-form-submitButton">зарегистрироваться</a>
-        <a href="../authorization/index.hbs" class="registration-form-loginButton">войти</a>
+        <a href="../profile/index.hbs" class="profileEdit-form-submitButton">сохранить</a>
+        <a href="../profile/index.hbs" class="profileEdit-form-signupButton">закрыть</a>
     </form>
 </div>
