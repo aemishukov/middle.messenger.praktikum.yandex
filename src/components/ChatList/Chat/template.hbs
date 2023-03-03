@@ -1,0 +1,18 @@
+<button class={{style.chat}}>
+    <div class={{style.logo}}>
+        <img src={{style.logo}} />
+    </div>
+    <div class={{style.info}}>
+        <div>
+            <div class={{style.label}}>{{label}}</div>
+            <div class={{style.date}}>{{lastMessage.date}}</div>
+        </div>
+        <div>
+            <div class={{style.lastMessage}}>
+                {{#if lastMessage.usersMessage}}<span>вы: </span>{{/if}}
+                {{lastMessage.content}}
+            </div>
+            {{#if newMessagesCount}}<div class={{style.newMessagesCount}}>{{newMessagesCount}}</div>{{/if}}
+        </div>
+    </div>
+</button>

@@ -1,0 +1,63 @@
+@import "../../../assets/style/colors.scss";
+@import "../../../assets/style/mixins.scss";
+
+.contentContainer {
+    width: 45%;
+    padding: 20px 12px 8px 20px;
+    @include CousineRegular(11px, 11px);
+    color: $blue;
+    background-color: #E6E8FF;
+}
+
+.time {
+    margin-top: 5px;
+    width: 100%;
+    text-align: right;
+    @include CousineRegular(9px, 9px);
+    color: #97A1FF;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+
+    .logo {
+        margin-right: 14px;
+        width: 31px;
+        height: 31px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: auto;
+        left: auto;
+        content: url("../../../assets/images/testPhoto.png")
+    }
+
+    .content {
+        @extend .contentContainer;
+
+        border-radius: 0px 20px 20px 20px;
+    }
+}
+
+.usersMessage {
+    @extend .message;
+    justify-content: flex-end;
+
+    .logo {
+        display: none;
+    }
+
+    .content {
+        @extend .contentContainer;
+
+        border-radius: 20px 0px 20px 20px;
+    }
+}

@@ -1,0 +1,15 @@
+<div class={{style.message}}>
+  <div class={{style.logo}}>
+    <img src=={{logo}} />
+  </div>
+  <div class={{style.content}}>
+    {{#if isImages}}
+      {{#each images}}
+        <img src={{this}} />
+      {{/each}}
+    {{else}}
+      {{content}}
+    {{/if}}
+    <div class={{style.time}}>{{date.time}}</div>
+  </div>
+</div>

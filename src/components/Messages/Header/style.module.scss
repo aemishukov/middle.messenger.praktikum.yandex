@@ -1,0 +1,57 @@
+@import "../../../assets/style/colors.scss";
+@import "../../../assets/style/mixins.scss";
+
+.header {
+    width: 100%;
+    padding: 15px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header >div:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 31px;
+    height: 31px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: url("../../../assets/images/testPhoto.png");
+}
+
+.name {
+    margin-left: 11px;
+
+    @include CousineBold(12px, 12px);
+    color: $blue;
+}
+
+.button {
+    width: 31px;
+    height: 31px;
+
+    background-color: transparent;
+    border: none;
+
+    border-radius: 50%;
+    background-image: url("../../../assets/images/icons/points.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    cursor: pointer;
+}

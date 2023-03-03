@@ -1,0 +1,24 @@
+<div class={{style.profile-page}}>
+  {{{navigation}}}
+  <section class={{style.profile}}>
+    <div class={{style.profile-options}}>
+      <div class={{style.profile-options-status}}>
+        <div class={{style.profile-options-status-photo-container}}>
+          {{{avatar}}}
+        </div>
+        <div class={{style.profile-options-status-name}}>{{name}} {{surname}}</div>
+        <div class={{style.profile-options-status-online}}>{{status}}</div>
+        <div class={{style.profile-options-status-phrase}}>{{phrase}}</div>
+      </div>
+      <div class={{style.profile-options-controls}}>
+        {{{profileEditButton}}}
+        {{{passwordEditButton}}}
+      </div>
+    </div>
+    <div class={{style.profile-info}}>
+      {{#each info}}
+        {{{this}}}
+      {{/each}}
+    </div>
+  </section>
+</div>

@@ -1,0 +1,15 @@
+@import "../../../src/assets/style/colors.scss";
+@import "../../../src/assets/style/mixins.scss";
+
+.navigation-page {
+    padding: 20px;
+
+    h1 {
+        margin-bottom: 30px;
+        @include CousineRegular(19px, 19px);
+    }
+
+    button {
+        padding: 10px;
+    }
+}

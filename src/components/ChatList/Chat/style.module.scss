@@ -1,0 +1,98 @@
+@import "../../../assets/style/colors.scss";
+@import "../../../assets/style/mixins.scss";
+
+.chat {
+    width: 100%;
+    height: 71px;
+    padding: 12px 10px;
+    display: flex;
+
+    background-color: transparent;
+    border: none;
+}
+
+.chatIsActive {
+    @extend .chat;
+
+    background-color: #E5E8FF;
+}
+
+.chat:nth-child(n + 2) {
+    border-top: 1px solid #EAEAEA;
+}
+
+.logo {
+    width: 47px;
+    height: 47px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.logo img {
+    position: absolute;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 100%;
+    content: url("../../../assets/images/testPhoto.png");
+}
+
+.info {
+    margin-left: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info >div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.info >div:nth-child(2) {
+    margin-top: 4px;
+    flex-grow: 1;
+}
+
+.label {
+    @include CousineBold(12px, 12px);
+    color: $blue;
+}
+
+.date {
+    @include CousineRegular(8px, 8px);
+    color: #ADB8CC;
+}
+
+.lastMessage {
+    height: 100%;
+    @include CousineRegular(11px, 11px);
+    color: #97A1FF;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lastMessage span {
+    color: $blue;
+}
+
+.newMessagesCount {
+    margin-left: 8px;
+    min-width: 20px;
+    min-height: 20px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include CousineRegular(11px, 11px);
+    color: $green;
+
+    border-radius: 50%;
+    background-color: $blue;
+}
