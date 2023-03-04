@@ -6,9 +6,10 @@ export interface FileInputProps {
     label: string,
     name: string,
     class: string,
+    style: {key: string, value: string}
 }
 
-export class FileInput extends Block {
+export class FileInput extends Block<FileInputProps> {
   get value() {
     return (this.element as HTMLInputElement).value
   }

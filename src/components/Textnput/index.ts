@@ -12,7 +12,7 @@ export interface TextInputProps {
     }
 }
 
-export class TextInput extends Block {
+export class TextInput extends Block<TextInputProps> {
   get value() {
     return (this.element as HTMLInputElement).value
   }

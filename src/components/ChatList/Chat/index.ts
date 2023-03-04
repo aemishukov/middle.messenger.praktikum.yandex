@@ -17,7 +17,7 @@ export interface ChatProps {
   }
 }
 
-export class Chat extends Block {
+export class Chat extends Block<ChatProps> {
   render() {
     return this.compile(template, {
       style: { ...style, chat: this.props.isActive ? style.chatIsActive : style.chat },

@@ -10,7 +10,7 @@ const inputs: Array<{
   name: string,
   type: string,
   error: string,
-  validate: (value: string) => boolean
+  validate: (value: string) => string
 }> = [
   {
     label: 'старый пароль',
@@ -36,25 +36,16 @@ const inputs: Array<{
 ]
 
 export class PasswordEditPage extends Block {
+  form = this.children.form as Form
+
   init() {
     this.children.form = new Form({
       label: 'изменить пароль',
       inputs: inputs.map((input) => ({
         ...input,
         events: {
-          focusin: (e: Event) => {
-            const { name } = e.target as HTMLInputElement
-            const newInputs = inputs.map((el) => el.name === name ? { ...el, error: '' } : el)
-            console.log(newInputs)
-          },
-          focusout: (e: Event) => {
-            const { value, name } = e.target as HTMLInputElement
-            const isValidValue = input.validate(value)
-            const newInputs = inputs.map(
-              (el) => el.name === name ? { ...el, error: isValidValue ? '' : 'Ошибка ввода' } : el
-            )
-            console.log(newInputs)
-          }
+          focusin: () => this.form.validate(input.name),
+          focusout: () => this.form.validate(input.name)
         }
       })),
       submitButton: {
@@ -63,9 +54,9 @@ export class PasswordEditPage extends Block {
         events: {
           click: (e: Event) => {
             e.preventDefault()
-            const isValid = (this.children.form as Form).isValid()
-            const data = (this.children.form as Form).getValues()
-            console.log('is valid: ', isValid)
+            const isValid = this.form.isValid()
+            const data = this.form.getValues()
+            console.log('form is valid: ', isValid)
             console.log(data)
           }
         }

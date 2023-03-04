@@ -7,7 +7,7 @@ export interface ProfileRowProps {
     value: string,
 }
 
-export class ProfileRow extends Block {
+export class ProfileRow extends Block<ProfileRowProps> {
   render() {
     return this.compile(template, { ...this.props, style })
   }

@@ -19,15 +19,3 @@
 
     outline: none;
 }
-
-.formInput input[data-error]  {
-    color: $red;
-}
-
-.formInput p {
-    margin-top: 5px;
-
-    @include CousineRegular(8px, 8px);
-
-    color: $red;
-}

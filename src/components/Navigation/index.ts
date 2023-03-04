@@ -13,7 +13,7 @@ export interface NavigationProps {
   logoutButton: ButtonProps,
 }
 
-export class Navigation extends Block {
+export class Navigation extends Block<NavigationProps> {
   init() {
     this.children.chatButton = new Button({
       ...this.props.chatButton,

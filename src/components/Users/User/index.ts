@@ -7,7 +7,7 @@ export interface UserProps extends ButtonProps {
   name: string,
 }
 
-export class User extends Block {
+export class User extends Block<UserProps> {
   init() {
     this.children.userButton = new Button({
       label: this.props.name.slice(0, 1),

@@ -1,9 +1,11 @@
 type Options = {
-    data: any,
-    headers: {key: string, value: string},
-    method: string,
-    timeout: number
-  };
+  data?: any,
+  headers?: {key: string, value: string},
+  method?: string,
+  timeout?: number
+}
+
+type HTTPMethod = (url: string, options?: Options) => Promise<unknown>
 
 const METHODS = {
   GET: 'GET',
@@ -12,43 +14,46 @@ const METHODS = {
   DELETE: 'DELETE'
 }
 
+const defaultTimeout = 5 * 1000 // 5 sec
+
 function queryStringify(data: any) {
   return Object.entries(data).reduce((agg, [key, value]) => [...agg, `${key}=${value!.toString()}`], []).join('&')
 }
 
 export class HTTPTransport {
-  get = (url: string, options: Options) => this.request(options.data
+  get: HTTPMethod = (url, options = {}) => this.request(options.data
     ? `${url}?${queryStringify(options.data)}` : url, { ...options, method: METHODS.GET })
 
-  post = (url: string, options: Options) => this.request(url, {
-    ...options,
-    method: METHODS.POST
-  })
+  post: HTTPMethod = (url, options = {}) => this.request(url, { ...options, method: METHODS.POST })
 
-  put = (url: string, options: Options) => this.request(url, {
+  put: HTTPMethod = (url, options = {}) => this.request(url, {
     ...options,
     method: METHODS.PUT
   })
 
-  delete = (url:string, options: Options) => this.request(url, {
+  delete: HTTPMethod = (url, options = {}) => this.request(url, {
     ...options,
     method: METHODS.DELETE
   })
 
-  request = (url: string, options: Options) => {
-    const { method, data, headers } = options
+  request: HTTPMethod = (url, options = {}) => {
+    const {
+      method, data, headers, timeout = defaultTimeout
+    } = options
+
+    if (!method) throw new Error('request method is undefined')
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest()
       xhr.open(method, url)
 
       if (headers) {
-        Object.entries(options.headers).forEach(
+        Object.entries(headers).forEach(
           ([headerName, headerValue]) => xhr.setRequestHeader(headerName, headerValue)
         )
       }
 
-      xhr.timeout = options.timeout
+      xhr.timeout = timeout
 
       xhr.onload = () => resolve(xhr)
       xhr.onabort = reject

@@ -3,7 +3,15 @@ import template from './template.hbs'
 import { Button } from '../../Button'
 import style from './style.module.scss'
 
-export class Header extends Block {
+export interface HeaderProps {
+  label: string,
+  class: string,
+  events: {
+    click: () => void
+  }
+}
+
+export class Header extends Block<HeaderProps> {
   init() {
     this.children.button = new Button({
       label: '',

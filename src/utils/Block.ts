@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid'
 import { EventBus } from './EventBus'
 
-class Block {
+abstract class Block<Props extends Record<string, any> = unknown> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -11,7 +11,7 @@ class Block {
 
   public id = nanoid(6)
 
-  protected props: any
+  protected props: Props
 
   public children: Record<string, Block | Block[]>
 
@@ -19,7 +19,7 @@ class Block {
 
   private _element: HTMLElement | null = null
 
-  private _meta: { props: any }
+  private _meta: { props: unknown }
 
   constructor(propsWithChildren: any = {}) {
     const eventBus = new EventBus()
@@ -52,9 +52,15 @@ class Block {
   }
 
   _addEvents() {
-    const { events = {} } = this.props as { events: Record<string, () => void> }
+    const { events = {} } = this.props
 
     Object.keys(events).forEach((eventName) => this._element?.addEventListener(eventName, events[eventName]))
+  }
+
+  _removeEvents() {
+    const { events = {} } = this.props
+
+    Object.keys(events).forEach((eventName) => this._element?.removeEventListener(eventName, events[eventName]))
   }
 
   _registerEvents(eventBus: EventBus) {
@@ -116,13 +122,13 @@ class Block {
     const fragment = this.render()
     const newElement = fragment.firstElementChild as HTMLElement
 
+    this._removeEvents()
+
     if (this._element) {
       this._element.replaceWith(newElement)
     }
 
     this._element = newElement
-
-    // this._removeEvents()
 
     this._addEvents()
   }

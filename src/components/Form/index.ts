@@ -11,7 +11,9 @@ export interface FormProps {
     secondButton: ButtonProps
 }
 
-export class Form extends Block {
+export class Form extends Block<FormProps> {
+  inputsElements = this.children.inputs as FormInput[]
+
   init() {
     this.children.inputs = this.props.inputs.map((input: FormInputProps) => new FormInput(input))
     this.children.submitButton = new Button({ ...this.props.submitButton, class: style.submitButton })
@@ -19,20 +21,19 @@ export class Form extends Block {
   }
 
   isValid() {
-    return (this.children.inputs as FormInput[]).reduce((agg, input) => {
-      const { value, name } = ((input.element as HTMLElement).children[1] as HTMLInputElement)
-      const isValidValue = this.props.inputs.find((el: FormInputProps) => el.name === name).validate(value)
-      console.log(name, value, `is valid: ${isValidValue}`)
-      return isValidValue ? agg : isValidValue
-    }, true)
+    return this.inputsElements.reduce((agg, input) => input.validate().length === 0 ? agg : false, true)
   }
 
   getValues() {
-    return (this.children.inputs as FormInput[]).reduce((agg, input) => {
-      const { value, name } = ((input.element as HTMLElement).children[1] as HTMLInputElement)
+    return this.inputsElements.reduce((agg, input) => ({ ...agg, [input.name]: input.value }), {})
+  }
 
-      return { ...agg, [name]: value }
-    }, {})
+  validate(name: string) {
+    const currentInput = this.inputsElements.find((input) => input.name === name)
+
+    if (!currentInput) throw new Error('input not found')
+
+    currentInput.validate()
   }
 
   render() {

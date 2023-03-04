@@ -19,8 +19,11 @@ export class Inputs extends Block {
       class: style.textInput,
       name: 'message',
       events: {
-        focusin: () => {
-          console.log('focus')
+        focusin: (e: Event) => {
+          const { value, name } = e.target as HTMLInputElement
+          const isValidValue = isValidMessage(value)
+
+          console.log(name, 'is valid: ', isValidValue)
         },
         focusout: (e: Event) => {
           const { value, name } = e.target as HTMLInputElement
@@ -48,6 +51,6 @@ export class Inputs extends Block {
   }
 
   render() {
-    return this.compile(template, { style, ...this.props })
+    return this.compile(template, { style })
   }
 }

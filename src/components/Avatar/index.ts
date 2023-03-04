@@ -9,7 +9,7 @@ export interface AvatarProps {
   isEditButtonEnable: boolean,
 }
 
-export class Avatar extends Block {
+export class Avatar extends Block<AvatarProps> {
   init() {
     this.children.editButton = new Button({
       label: 'изменить \n аватар',
