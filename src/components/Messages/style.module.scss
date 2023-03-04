@@ -1,0 +1,27 @@
+@import "../../assets/style/colors.scss";
+@import "../../assets/style/mixins.scss";
+
+.messages {
+    display: flex;
+    flex-direction: column;
+}
+
+.messageList {
+    padding-left: 14px;
+    padding-right: 48px;
+
+    flex-grow: 1;
+
+    border-top: 1px solid #EAEAEA;
+    border-bottom: 1px solid #EAEAEA;
+
+    overflow-y: auto;
+}
+
+.date {
+    margin: 20px 0;
+    width: 100%;
+    text-align: center;
+    @include CousineRegular(11px, 11px);
+    color: #97A1FF;
+}

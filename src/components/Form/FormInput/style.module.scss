@@ -1,0 +1,21 @@
+@import "../../../assets/style/mixins.scss";
+@import "../../../assets/style/colors.scss";
+
+.formInput h1 {
+    @include CousineRegular(8px, 8px);
+    color: $grey;
+}
+
+.formInput input {
+    width: 100%;
+    padding: 6px 0;
+    @include CousineRegular(13px, 13px);
+
+    color: $blue;
+    background-color: transparent;
+
+    border: none;
+    border-bottom: 1px solid $black;
+
+    outline: none;
+}

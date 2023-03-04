@@ -1,0 +1,22 @@
+@import "../../assets/style/mixins.scss";
+@import "../../assets/style/colors.scss";
+
+.profileRow {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $green;
+}
+
+.profileRow-name {
+    @include CousineRegular(14px, 14px);
+
+    color: $black;
+}
+
+.profileRow-value {
+    @include CousineRegular(14px, 14px);
+
+    color: $blue;
+}

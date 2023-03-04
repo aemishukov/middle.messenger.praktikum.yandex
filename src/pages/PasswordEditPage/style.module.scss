@@ -1,0 +1,14 @@
+@import "../../../src/assets/style/colors.scss";
+@import "../../../src/assets/style/mixins.scss";
+
+.passwordEdit-container {
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 36px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAFBFC;
+}

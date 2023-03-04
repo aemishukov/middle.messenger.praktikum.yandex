@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true,
+    "worker": true,
+    "serviceworker": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".js"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "extends": "airbnb",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "ignorePatterns": [
+    "node_modules",
+    "/dist",
+    "package-lock.json"
+  ],
+  "rules": {
+    "max-len": [2, 120],
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-unused-vars": ["warn"],
+    "import/prefer-default-export": ["off"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "linebreak-style": ["error", "windows"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "no-console": ["warn", { "allow": ["error", "warn"] }],
+    "comma-dangle": ["error", "never"],
+    "no-use-before-define": "off",
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
+    "no-confusing-arrow": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "": "never",
+        "js": "never",
+        "ts": "never"
+      }
+    ]
+  }
+}

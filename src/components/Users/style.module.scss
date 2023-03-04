@@ -1,0 +1,39 @@
+@import "../../assets/style/colors.scss";
+@import "../../assets/style/mixins.scss";
+
+.users {
+    padding: 16px 18px;
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    width: 31px;
+    height: 31px;
+
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.userButton {
+    @extend .button;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #EFEFEF;
+}
+
+.addUserButton {
+    @extend .button;
+
+    background-color: #EFEFEF;
+
+    background-image: url("../../assets/images/icons/plus.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
